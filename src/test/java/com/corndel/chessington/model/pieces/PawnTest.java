@@ -111,7 +111,7 @@ public class PawnTest {
     assertThat(moves).doesNotContain(new Move(moved, moved.plus(2, 0)));
   }
 
-  @Disabled
+  //@Disabled
   @Test
   public void pawnsCannotMoveIfPieceInFront() {
     // Arrange

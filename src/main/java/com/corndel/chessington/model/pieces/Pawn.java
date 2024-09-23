@@ -38,9 +38,15 @@ public class Pawn implements Piece {
 
     // basic ability to move one square forwards
     if (getColour().equals(PlayerColour.WHITE)) {
-      allowedMoves.add(new Move(from, from.plus(-1, 0)));
+      Coordinates proposed = from.plus(-1, 0);
+      if(board.get(proposed) == null) {
+        allowedMoves.add(new Move(from, proposed));
+      }
     } else {
-      allowedMoves.add(new Move(from, from.plus(1, 0)));
+      Coordinates proposed = from.plus(1, 0);
+      if(board.get(proposed) == null) {
+        allowedMoves.add(new Move(from, proposed));
+      }
     }
 
     // pawns can only move forwards, so if it is on the starting row that means
