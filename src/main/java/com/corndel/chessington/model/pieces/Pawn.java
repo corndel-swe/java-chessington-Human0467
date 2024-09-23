@@ -65,7 +65,27 @@ public class Pawn implements Piece {
       }
     }
 
-
+    // pawns capture diagonally
+    // check if there is a piece there
+    if (getColour().equals(PlayerColour.WHITE)) {
+      Coordinates proposed = from.plus(-1, 1);
+      if(!board.isSpaceEmpty(proposed)) {
+        allowedMoves.add(new Move(from, proposed));
+      }
+      proposed = from.plus(-1, -1);
+      if(!board.isSpaceEmpty(proposed)) {
+        allowedMoves.add(new Move(from, proposed));
+      }
+    } else {
+      Coordinates proposed = from.plus(1, 1);
+      if(!board.isSpaceEmpty(proposed)) {
+        allowedMoves.add(new Move(from, proposed));
+      }
+      proposed = from.plus(1, -1);
+      if(!board.isSpaceEmpty(proposed)) {
+        allowedMoves.add(new Move(from, proposed));
+      }
+    }
     // TODO Implement this!
     return allowedMoves;
   }

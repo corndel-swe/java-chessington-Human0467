@@ -189,7 +189,7 @@ public class PawnTest {
     assertThat(moves).isEmpty();
   }
 
-  @Disabled
+  //@Disabled
   @Test
   public void whitePawnsCanCaptureDiagonally() {
     // Arrange
@@ -209,7 +209,7 @@ public class PawnTest {
     assertThat(moves).contains(new Move(pawnCoords, enemyCoords));
   }
 
-  @Disabled
+  //@Disabled
   @Test
   public void blackPawnsCanCaptureDiagonally() {
     // Arrange
