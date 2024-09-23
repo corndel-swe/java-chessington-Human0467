@@ -43,10 +43,14 @@ public class Bishop implements Piece {
         for(int j = 0; j <= 7; j++){
           // are the points on the line?
           if(j - i - intercept == 0){
+            System.out.println("(" + i + "," + j + ") is on the line");
             // record how to get there
-            int rowDiff = i - from.getCol();
-            int colDiff = j - from.getRow();
-            allowedMoves.add(new Move(from, from.plus(rowDiff, colDiff)));
+            int colDiff = i - from.getCol();
+            int rowDiff = j - from.getRow();
+            if(!(rowDiff == 0 && colDiff == 0)){
+              allowedMoves.add(new Move(from, from.plus(rowDiff, colDiff)));
+              System.out.println(new Move(from, from.plus(rowDiff, colDiff)).toString());
+            }
           }
         }
       }
@@ -56,11 +60,13 @@ public class Bishop implements Piece {
         for(int j = 0; j <= 7; j++){
           // are the points on the line?
           if(j + i - intercept == 0){
+            System.out.println("(" + i + "," + j + ") is on the line");
             // record how to get there
-            int rowDiff = i - from.getCol();
-            int colDiff = j - from.getRow();
+            int colDiff = i - from.getCol();
+            int rowDiff = j - from.getRow();
             if(!(rowDiff == 0 && colDiff == 0)){
               allowedMoves.add(new Move(from, from.plus(rowDiff, colDiff)));
+              System.out.println(new Move(from, from.plus(rowDiff, colDiff)).toString());
             }
           }
         }
