@@ -57,16 +57,17 @@ public class Board {
   }
 
   public boolean isSpaceEmpty(Coordinates coords){
-    boolean isSpaceOnBoard =
-            (coords.getRow() >= 0 &&
-            coords.getRow() < Board.BOARD_SIZE &&
-            coords.getCol() >= 0 &&
-            coords.getCol() < Board.BOARD_SIZE);
-    if(isSpaceOnBoard) {
+    if(this.isSpaceOnBoard(coords)) {
       return this.get(coords) == null;
-    }else{
+    } else {
       return false;
     }
   }
 
+  public boolean isSpaceOnBoard(Coordinates coords){
+    return (coords.getRow() >= 0 &&
+            coords.getRow() < Board.BOARD_SIZE &&
+            coords.getCol() >= 0 &&
+            coords.getCol() < Board.BOARD_SIZE);
+  }
 }
