@@ -173,7 +173,7 @@ public class PawnTest {
     assertThat(moves).isEmpty();
   }
 
-  @Disabled
+  //@Disabled
   @Test
   public void blackPawnsCannotMoveAtBottomOfBoard() {
     // Arrange
