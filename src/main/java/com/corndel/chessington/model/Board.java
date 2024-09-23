@@ -70,4 +70,5 @@ public class Board {
             coords.getCol() >= 0 &&
             coords.getCol() < Board.BOARD_SIZE);
   }
+
 }
