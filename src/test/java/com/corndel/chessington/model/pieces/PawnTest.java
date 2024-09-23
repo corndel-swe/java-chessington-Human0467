@@ -134,7 +134,7 @@ public class PawnTest {
     assertThat(whiteMoves).isEmpty();
   }
 
-  @Disabled
+  //@Disabled
   @Test
   public void pawnsCannotMoveTwoSquaresIfPieceTwoInFront() {
     // Arrange

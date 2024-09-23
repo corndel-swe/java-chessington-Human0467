@@ -53,10 +53,16 @@ public class Pawn implements Piece {
     // it has not been moved --> is allowed to move 2 spaces forward
     if (getColour().equals(PlayerColour.WHITE) &&
             (from.getRow() == 6)) {
-      allowedMoves.add(new Move(from, from.plus(-2, 0)));
+      Coordinates proposed = from.plus(-2, 0);
+      if(board.get(proposed) == null) {
+        allowedMoves.add(new Move(from, proposed));
+      }
     } else if (getColour().equals(PlayerColour.BLACK) &&
             (from.getRow() == 1)){
-      allowedMoves.add(new Move(from, from.plus(2, 0)));
+      Coordinates proposed = from.plus(2, 0);
+      if(board.get(proposed) == null) {
+        allowedMoves.add(new Move(from, proposed));
+      }
     }
 
     // TODO Implement this!
