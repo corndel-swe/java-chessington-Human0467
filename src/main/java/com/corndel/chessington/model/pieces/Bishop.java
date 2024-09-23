@@ -36,8 +36,7 @@ public class Bishop implements Piece {
   @Override
   public List<Move> getAllowedMoves(Coordinates from, Board board) {
     var allowedMoves = new ArrayList<Move>();
-    //if (getColour().equals(PlayerColour.WHITE)) {
-      // loop over whole board
+      // traverse every space of the board
       int intercept = from.getRow() - from.getCol();
       for(int i = 0; i <= 7; i++){
         for(int j = 0; j <= 7; j++){
@@ -71,20 +70,6 @@ public class Bishop implements Piece {
           }
         }
       }
-//    } else {
-//      int intercept = from.getRow() - from.getCol();
-//      for(int i = 0; i <= 7; i++){
-//        for(int j = 0; j <= 7; j++){
-//          // are the points on the line?
-//          if(j - i - intercept == 0){
-//            // record how to get there
-//            int rowDiff = i - from.getCol();
-//            int colDiff = j - from.getRow();
-//            allowedMoves.add(new Move(from, from.plus(rowDiff, colDiff)));
-//          }
-//        }
-//      }
-//    }
 
     return allowedMoves;
   }

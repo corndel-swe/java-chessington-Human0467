@@ -41,7 +41,7 @@ public class PawnTest {
     assertThat(moves).contains(new Move(coords, coords.plus(1, 0)));
   }
 
-  @Disabled
+  //@Disabled
   @Test
   public void whitePawnCanMoveUpTwoSquaresIfNotMoved() {
     // Arrange
@@ -57,7 +57,7 @@ public class PawnTest {
     assertThat(moves).contains(new Move(coords, coords.plus(-2, 0)));
   }
 
-  @Disabled
+  //@Disabled
   @Test
   public void blackPawnCanMoveDownTwoSquaresIfNotMoved() {
     // Arrange
@@ -73,7 +73,7 @@ public class PawnTest {
     assertThat(moves).contains(new Move(coords, coords.plus(2, 0)));
   }
 
-  @Disabled
+  //@Disabled
   @Test
   public void whitePawnCannotMoveUpTwoSquaresIfAlreadyMoved() {
     // Arrange
@@ -92,7 +92,7 @@ public class PawnTest {
     assertThat(moves).doesNotContain(new Move(moved, moved.plus(-2, 0)));
   }
 
-  @Disabled
+  //@Disabled
   @Test
   public void blackPawnCannotMoveDownTwoSquaresIfAlreadyMoved() {
     // Arrange
