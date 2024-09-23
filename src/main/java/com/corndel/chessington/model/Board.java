@@ -55,4 +55,17 @@ public class Board {
   public void placePiece(Coordinates coords, Piece piece) {
     board[coords.getRow()][coords.getCol()] = piece;
   }
+
+  public boolean isSpaceEmpty(Coordinates coords){
+    boolean isSpaceOnBoard =
+            (coords.getRow() >= 0 &&
+            coords.getRow() < Board.BOARD_SIZE &&
+            coords.getCol() >= 0 &&
+            coords.getCol() < Board.BOARD_SIZE);
+    if(isSpaceOnBoard) {
+      return this.get(coords) == null;
+    }else{
+      return false;
+    }
+  }
 }

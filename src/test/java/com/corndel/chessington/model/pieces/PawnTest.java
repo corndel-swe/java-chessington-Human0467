@@ -157,7 +157,7 @@ public class PawnTest {
     assertThat(whiteMoves).doesNotContain(new Move(blackCoords, blackCoords.plus(-2, 0)));
   }
 
-  @Disabled
+  //Disabled
   @Test
   public void whitePawnsCannotMoveAtTopOfBoard() {
     // Arrange

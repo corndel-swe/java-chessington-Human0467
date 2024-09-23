@@ -39,12 +39,12 @@ public class Pawn implements Piece {
     // basic ability to move one square forwards
     if (getColour().equals(PlayerColour.WHITE)) {
       Coordinates proposed = from.plus(-1, 0);
-      if(board.get(proposed) == null) {
+      if(board.isSpaceEmpty(proposed)) {
         allowedMoves.add(new Move(from, proposed));
       }
     } else {
       Coordinates proposed = from.plus(1, 0);
-      if(board.get(proposed) == null) {
+      if(board.isSpaceEmpty(proposed)) {
         allowedMoves.add(new Move(from, proposed));
       }
     }
@@ -54,16 +54,17 @@ public class Pawn implements Piece {
     if (getColour().equals(PlayerColour.WHITE) &&
             (from.getRow() == 6)) {
       Coordinates proposed = from.plus(-2, 0);
-      if(board.get(proposed) == null) {
+      if(board.isSpaceEmpty(proposed)){
         allowedMoves.add(new Move(from, proposed));
       }
     } else if (getColour().equals(PlayerColour.BLACK) &&
             (from.getRow() == 1)){
       Coordinates proposed = from.plus(2, 0);
-      if(board.get(proposed) == null) {
+      if(board.isSpaceEmpty(proposed)) {
         allowedMoves.add(new Move(from, proposed));
       }
     }
+
 
     // TODO Implement this!
     return allowedMoves;
