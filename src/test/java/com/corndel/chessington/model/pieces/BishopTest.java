@@ -23,7 +23,7 @@ public class BishopTest {
     board = Board.empty();
   }
 
-  @Disabled
+  //@Disabled
   @Test
   public void bishopCanMoveDiagonally() {
     // Arrange

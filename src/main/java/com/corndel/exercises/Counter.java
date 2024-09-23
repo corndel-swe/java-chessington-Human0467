@@ -4,11 +4,11 @@ public class Counter{
 
     private int count;
 
-    // constructor
+    // constructor no parameters
     public Counter(){
         this.count = 0;
     }
-    // overloading
+    // constructor with initialCount parameter
     public Counter(int initialCount ){
         this.count = initialCount;
     }

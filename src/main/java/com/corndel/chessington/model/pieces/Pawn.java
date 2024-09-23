@@ -42,6 +42,6 @@ public class Pawn implements Piece {
     }
 
     // TODO Implement this!
-    return List.of();
+    return allowedMoves;
   }
 }
