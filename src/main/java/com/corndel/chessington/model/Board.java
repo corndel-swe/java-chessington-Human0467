@@ -57,6 +57,8 @@ public class Board {
   }
 
   public boolean isSpaceEmpty(Coordinates coords){
+    // check if its on the board first to avoid potential
+    // index out of range errors
     if(this.isSpaceOnBoard(coords)) {
       return this.get(coords) == null;
     } else {

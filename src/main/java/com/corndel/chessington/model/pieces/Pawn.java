@@ -70,7 +70,10 @@ public class Pawn implements Piece {
     if (getColour().equals(PlayerColour.WHITE)) {
       Coordinates proposed = from.plus(-1, 1);
       if(!board.isSpaceEmpty(proposed) &&
+              // since we've negated the first test, need to explicitly
+              // check this too
               board.isSpaceOnBoard(proposed) &&
+              // is the piece an enemy piece?
               !board.get(proposed).getColour().toString().equals(getColour().toString())){
         allowedMoves.add(new Move(from, proposed));
       }
