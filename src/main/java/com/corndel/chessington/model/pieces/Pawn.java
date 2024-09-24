@@ -43,51 +43,29 @@ public class Pawn implements Piece {
         allowedMoves.add(new Move(from, proposed));
       }
 
+
     // pawns can only move forwards, so if it is on the starting row that means
     // it has not been moved --> is allowed to move 2 spaces forward
-    if (getColour().equals(PlayerColour.WHITE) &&
-            (from.getRow() == 6)) {
-       proposed = from.plus(-2, 0);
-      if(board.isSpaceEmpty(proposed)){
-        allowedMoves.add(new Move(from, proposed));
-      }
-    } else if (getColour().equals(PlayerColour.BLACK) &&
-            (from.getRow() == 1)){
-      proposed = from.plus(2, 0);
-      if(board.isSpaceEmpty(proposed)) {
+    boolean isFirstMove = (from.getRow() == 6 && direction == -1 ) ||
+            (from.getRow() == 1 && direction == 1);
+    if (isFirstMove) {
+      proposed = from.plus(direction * 2, 0);
+      if (board.isSpaceEmpty(proposed)) {
         allowedMoves.add(new Move(from, proposed));
       }
     }
 
     // pawns capture diagonally
     // check if there is an ENEMY piece there
-    if (getColour().equals(PlayerColour.WHITE)) {
-       proposed = from.plus(-1, 1);
-      if(!board.isSpaceEmpty(proposed) &&
+    int[] possibleDiagonals = {1,-1};
+    for (int possibleDiagonal : possibleDiagonals) {
+      proposed = from.plus(direction, possibleDiagonal);
+      if (!board.isSpaceEmpty(proposed) &&
               // since we've negated the first test, need to explicitly
               // check this too
               board.isSpaceOnBoard(proposed) &&
               // is the piece an enemy piece?
-              !board.get(proposed).getColour().toString().equals(getColour().toString())){
-        allowedMoves.add(new Move(from, proposed));
-      }
-      proposed = from.plus(-1, -1);
-      if(!board.isSpaceEmpty(proposed) &&
-              board.isSpaceOnBoard(proposed) &&
-              !board.get(proposed).getColour().toString().equals(getColour().toString())){
-        allowedMoves.add(new Move(from, proposed));
-      }
-    } else {
-       proposed = from.plus(1, 1);
-      if(!board.isSpaceEmpty(proposed) &&
-              board.isSpaceOnBoard(proposed) &&
-              !board.get(proposed).getColour().toString().equals(getColour().toString())){
-        allowedMoves.add(new Move(from, proposed));
-      }
-      proposed = from.plus(1, -1);
-      if(!board.isSpaceEmpty(proposed) &&
-              board.isSpaceOnBoard(proposed) &&
-              !board.get(proposed).getColour().toString().equals(getColour().toString())){
+              !board.get(proposed).getColour().toString().equals(getColour().toString())) {
         allowedMoves.add(new Move(from, proposed));
       }
     }
