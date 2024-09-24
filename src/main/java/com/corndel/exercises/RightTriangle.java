@@ -29,7 +29,6 @@ public class RightTriangle implements Shape{
   @Override
   public double getPerimeter() {
     return this.base + this.height +
-            Math.sqrt(Math.pow(this.base,2) +
-                    Math.pow(this.height,2));
+            this.getHypotenuse();
   }
 }
