@@ -11,4 +11,9 @@ public abstract class AbstractPiece implements Piece {
     this.type = type;
     this.colour = colour;
   }
+
+  @Override
+  public PieceType getType() {
+    return type;
+  }
 }

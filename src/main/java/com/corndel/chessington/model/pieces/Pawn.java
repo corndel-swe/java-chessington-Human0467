@@ -7,20 +7,21 @@ import com.corndel.chessington.model.PlayerColour;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Pawn implements Piece {
+public class Pawn extends AbstractPiece {
 
-  private final Piece.PieceType type;
-  protected final PlayerColour colour;
+  //private final Piece.PieceType type;
+  //protected final PlayerColour colour;
 
   public Pawn(PlayerColour colour) {
-    this.type = PieceType.PAWN;
-    this.colour = colour;
+    //this.type = PieceType.PAWN;
+    super(PieceType.PAWN, colour);
+    //this.colour = colour;
   }
 
-  @Override
-  public Piece.PieceType getType() {
-    return type;
-  }
+//  @Override
+//  public Piece.PieceType getType() {
+//    return this.type;
+//  }
 
   @Override
   public PlayerColour getColour() {
@@ -29,7 +30,7 @@ public class Pawn implements Piece {
 
   @Override
   public String toString() {
-    return colour.toString() + " " + type.toString();
+    return colour.toString() + " " + this.getType().toString();
   }
 
   @Override

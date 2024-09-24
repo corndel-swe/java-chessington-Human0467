@@ -49,6 +49,9 @@ public class Bishop implements Piece {
               int colDiff = i - from.getCol();
               int rowDiff = j - from.getRow();
               if (!(rowDiff == 0 && colDiff == 0)) {
+                // check here if space is occupied
+                //  - by friendly? blocked
+                //  - by enemy? can take
                 allowedMoves.add(new Move(from, from.plus(rowDiff, colDiff)));
                 System.out.println(new Move(from, from.plus(rowDiff, colDiff)).toString());
               }
