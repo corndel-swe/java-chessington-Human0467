@@ -56,6 +56,7 @@ public class Board {
     board[coords.getRow()][coords.getCol()] = piece;
   }
 
+  // maybe split into two - containsOwnPiece / containsEnemyPiece?
   public boolean isSpaceEmpty(Coordinates coords){
     // check if its on the board first to avoid potential
     // index out of range errors
