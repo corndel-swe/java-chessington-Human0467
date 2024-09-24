@@ -65,11 +65,11 @@ public class Pawn implements Piece {
               // check this too
               board.isSpaceOnBoard(proposed) &&
               // is the piece an enemy piece?
-              !board.get(proposed).getColour().toString().equals(getColour().toString())) {
+              !board.get(proposed).getColour().equals(getColour())) {
         allowedMoves.add(new Move(from, proposed));
       }
     }
-    // TODO Implement this!
+
     return allowedMoves;
   }
 }
