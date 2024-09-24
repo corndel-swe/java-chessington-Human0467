@@ -41,7 +41,6 @@ public class Rook extends AbstractPiece {
     for(String direction : directions){
       Coordinates proposed = from;
       boolean stopped = false;
-      System.out.println(direction);
       // keep checking spaces in this direction until we get 'stopped'
       while(!stopped){
         // get proposed next move
