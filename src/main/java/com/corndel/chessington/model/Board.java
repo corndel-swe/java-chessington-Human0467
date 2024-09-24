@@ -2,6 +2,8 @@ package com.corndel.chessington.model;
 
 import com.corndel.chessington.model.pieces.*;
 
+import java.awt.*;
+
 public class Board {
 
   public static final int BOARD_SIZE = 8;
@@ -72,6 +74,34 @@ public class Board {
             coords.getRow() < Board.BOARD_SIZE &&
             coords.getCol() >= 0 &&
             coords.getCol() < Board.BOARD_SIZE);
+  }
+
+  public Coordinates getNextMove(Coordinates from, String direction){
+    switch(direction){
+
+      case "U":
+        return from.plus(-1,0);
+      case "UR":
+        return from.plus(-1, 1);
+      case "R":
+        return from.plus(0,1);
+      case "DR":
+        return from.plus(1, 1);
+      case "D":
+        return from.plus(1, 0);
+      case "DL":
+        return from.plus(1, -1);
+      case "L":
+        return from.plus(0, -1);
+      case "UL":
+        return from.plus(-1, -1);
+    }
+    // needs a catch-all return / should throw an error
+    return from;
+  }
+
+  public boolean isPieceFriendly(Coordinates target, PlayerColour colour){
+    return this.get(target).getColour().equals(colour);
   }
 
 }

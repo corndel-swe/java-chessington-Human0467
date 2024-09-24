@@ -23,15 +23,15 @@ public class Pawn extends AbstractPiece {
 //    return this.type;
 //  }
 
-  @Override
-  public PlayerColour getColour() {
-    return colour;
-  }
+//  @Override
+//  public PlayerColour getColour() {
+//    return colour;
+//  }
 
-  @Override
-  public String toString() {
-    return colour.toString() + " " + this.getType().toString();
-  }
+//  @Override
+//  public String toString() {
+//    return colour.toString() + " " + this.getType().toString();
+//  }
 
   @Override
   public List<Move> getAllowedMoves(Coordinates from, Board board) {
@@ -43,7 +43,6 @@ public class Pawn extends AbstractPiece {
       if(board.isSpaceEmpty(proposed)) {
         allowedMoves.add(new Move(from, proposed));
       }
-
 
     // pawns can only move forwards, so if it is on the starting row that means
     // it has not been moved --> is allowed to move 2 spaces forward
