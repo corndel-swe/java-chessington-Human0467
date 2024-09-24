@@ -51,7 +51,7 @@ public class BishopTest {
             new Move(coords, new Coordinates(0, 7)));
   }
 
-  @Disabled
+  //@Disabled
   @Test
   public void bishopCanCaptureOpposingPiece() {
     // Arrange
@@ -69,7 +69,7 @@ public class BishopTest {
     assertThat(allowedMoves).contains(new Move(coords, opponentCoords));
   }
 
-  @Disabled
+  //@Disabled
   @Test
   public void bishopCannotMoveThroughOpposingPiece() {
     // Arrange
@@ -89,7 +89,7 @@ public class BishopTest {
             new Move(coords, new Coordinates(1, 1)), new Move(coords, new Coordinates(0, 0)));
   }
 
-  @Disabled
+  //@Disabled
   @Test
   public void bishopIsBlockedByFriendlyPiece() {
     // Arrange
