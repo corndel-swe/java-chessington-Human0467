@@ -3,6 +3,7 @@ package com.corndel.chessington.model;
 import com.corndel.chessington.model.pieces.*;
 
 import java.awt.*;
+import java.util.ArrayList;
 
 public class Board {
 
@@ -102,6 +103,41 @@ public class Board {
 
   public boolean isPieceFriendly(Coordinates target, PlayerColour colour){
     return this.get(target).getColour().equals(colour);
+  }
+
+  public ArrayList<Move> getMoves (String[] directions, int maxDistance, PlayerColour colour,
+                                   Coordinates from){
+    var allowedMoves = new ArrayList<Move>();
+
+    for(String direction : directions){
+      int moved = 0;
+      Coordinates proposed = from;
+      boolean stopped = false;
+      // keep checking spaces in this direction until we get 'stopped'
+      while(!stopped && moved < maxDistance){
+        // get proposed next move
+        proposed = this.getNextMove(proposed, direction);
+        // check if on board?
+        if(!this.isSpaceOnBoard(proposed)) {
+          stopped = true;
+          break;
+        } else if(this.isSpaceEmpty(proposed)){
+          allowedMoves.add(new Move(from, proposed));
+          moved++;
+          continue;
+        } else if(this.isPieceFriendly(proposed, colour)){
+          stopped = true;
+          break;
+        } else {
+          stopped = true;
+          allowedMoves.add(new Move(from, proposed));
+          moved++;
+          break;
+        }
+      }
+    }
+
+    return allowedMoves;
   }
 
 }

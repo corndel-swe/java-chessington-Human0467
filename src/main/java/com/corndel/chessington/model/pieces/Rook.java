@@ -14,21 +14,6 @@ public class Rook extends AbstractPiece {
     super(PieceType.ROOK, colour);
   }
 
-//  @Override
-//  public Piece.PieceType getType() {
-//    return this.getType();
-//  }
-
-//  @Override
-//  public PlayerColour getColour() {
-//    return colour;
-//  }
-
-//  @Override
-//  public String toString() {
-//    return colour.toString() + " " + this.getType().toString();
-//  }
-
   @Override
   public List<Move> getAllowedMoves(Coordinates from, Board board) {
 
@@ -36,32 +21,9 @@ public class Rook extends AbstractPiece {
 
     // rook can move = vertical, horizontal
     String[] directions = {"U", "R", "D", "L"};
+    int maxDistance = 8;
 
-    // loop over every allowed direction
-    for(String direction : directions){
-      Coordinates proposed = from;
-      boolean stopped = false;
-      // keep checking spaces in this direction until we get 'stopped'
-      while(!stopped){
-        // get proposed next move
-        proposed = board.getNextMove(proposed, direction);
-        // check if on board?
-        if(!board.isSpaceOnBoard(proposed)) {
-          stopped = true;
-          break;
-        } else if(board.isSpaceEmpty(proposed)){
-          allowedMoves.add(new Move(from, proposed));
-          continue;
-        } else if(board.isPieceFriendly(proposed, this.getColour())){
-          stopped = true;
-          break;
-        } else {
-          stopped = true;
-          allowedMoves.add(new Move(from, proposed));
-          break;
-        }
-      }
-    }
+    allowedMoves = board.getMoves(directions, maxDistance, this.getColour(), from);
 
     return allowedMoves;
   }

@@ -21,7 +21,7 @@ public class KnightTest {
     board = Board.empty();
   }
 
-  @Disabled
+  //@Disabled
   @Test
   public void knightsCanMoveLikeKnights() {
     // Arrange
