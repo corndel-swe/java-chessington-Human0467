@@ -24,4 +24,20 @@ public class MathsTests {
     public void maxReturnsNumberWhenBothEqual(){
         assertEquals(6.5, Maths.max(6.5, 6.5));
     }
+
+    @Test
+    public void roundReturnsSameNumberWhenGivenWhole(){
+        assertEquals(6.0, Maths.round(6.0));
+    }
+
+    @Test
+    public void roundsDownCorrectly(){
+        assertEquals(10.0, Maths.round(10.346));
+    }
+
+    @Test
+    public void roundsUpCorrectly(){
+        assertEquals(1.0, Maths.round(0.50001));
+    }
+
 }
