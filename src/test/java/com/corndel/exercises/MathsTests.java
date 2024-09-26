@@ -1,6 +1,5 @@
 package com.corndel.exercises;
 
-import com.corndel.exercises.Maths;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
