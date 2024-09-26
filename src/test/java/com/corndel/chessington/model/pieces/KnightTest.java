@@ -15,6 +15,8 @@ public class KnightTest {
 
   private Board board;
   private Knight knight = new Knight(PlayerColour.WHITE);
+  // private Piece knight2 = new Knight(PlayerColour.WHITE);
+  // private AbstractPiece knight3 = new Knight(PlayerColour.WHITE)
 
   @BeforeEach
   public void setup() {
@@ -95,4 +97,6 @@ public class KnightTest {
     // Assert
     assertThat(allowedMoves).doesNotContain(new Move(coords, friendlyCoords));
   }
+
 }
+
