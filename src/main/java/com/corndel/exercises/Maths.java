@@ -18,4 +18,29 @@ public class Maths {
         }
         return result;
     }
+
+    public static double floor(double number){
+        double result;
+        double decimal = number % 1;
+
+        if(number < 0){
+            result = number - (1 + decimal);
+        } else {
+            result = number - decimal;
+        }
+        return result;
+    }
+
+    public static double ceil(double number){
+        double decimal = number % 1;
+        double result;
+
+        if (number < 0){
+            result = number - decimal;
+        } else {
+            result = (number + (1 - decimal));
+        }
+        return decimal == 0.0 ? number : result;
+    }
+
 }
