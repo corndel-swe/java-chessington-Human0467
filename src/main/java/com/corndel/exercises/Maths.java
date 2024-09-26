@@ -43,4 +43,8 @@ public class Maths {
         return decimal == 0.0 ? number : result;
     }
 
+    public static double abs(double number){
+        if(number == -0.0){ return 0.0; }
+        return number < 0 ? -number : number;
+    }
 }

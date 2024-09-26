@@ -75,4 +75,24 @@ public class MathsTests {
     public void CeilHandlesNegatives(){
         assertEquals(-7, Maths.ceil(-7.6));
     }
+
+    @Test
+    public void AbsReturnsInputWhenGivenPositive(){
+        assertEquals(5.0, Maths.abs(5.0));
+    }
+
+    @Test
+    public void AbsReturnsPositiveWhenGivenNegative(){
+        assertEquals(5.6, Maths.abs(-5.6));
+    }
+
+    @Test
+    public void AbsHandlesZero(){
+        assertEquals(0, Maths.abs(0));
+    }
+
+    @Test
+    public void AbsHandlesNegativeZero(){
+        assertEquals(0, Maths.abs(-0.00));
+    }
 }
