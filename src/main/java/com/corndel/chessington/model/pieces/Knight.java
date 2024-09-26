@@ -32,7 +32,6 @@ public class Knight extends AbstractPiece {
           allowedMoves.add(new Move(from, proposed));
         }
       }
-      allowedMoves.add(new Move(from, proposed));
     }
 
     return allowedMoves;

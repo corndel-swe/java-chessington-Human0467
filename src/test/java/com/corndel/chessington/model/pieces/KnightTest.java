@@ -44,7 +44,7 @@ public class KnightTest {
             new Move(coords, new Coordinates(5, 2)));
   }
 
-  @Disabled
+  //@Disabled
   @Test
   public void knightsCannotLeaveBoard() {
     // Arrange
@@ -60,7 +60,7 @@ public class KnightTest {
             new Move(coords, new Coordinates(1, 2)), new Move(coords, new Coordinates(2, 1)));
   }
 
-  @Disabled
+  //@Disabled
   @Test
   public void knightsCanCaptureOpposingPieces() {
     // Arrange
@@ -78,7 +78,7 @@ public class KnightTest {
     assertThat(allowedMoves).contains(new Move(coords, opponentCoords));
   }
 
-  @Disabled
+  //@Disabled
   @Test
   public void knightsCannotLandOnFriendlyPieces() {
     // Arrange
