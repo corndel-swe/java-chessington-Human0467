@@ -4,36 +4,25 @@ import com.corndel.chessington.model.Board;
 import com.corndel.chessington.model.Coordinates;
 import com.corndel.chessington.model.Move;
 import com.corndel.chessington.model.PlayerColour;
+
+import java.util.ArrayList;
 import java.util.List;
 
-public class Queen implements Piece {
-
-  private final Piece.PieceType type;
-  protected final PlayerColour colour;
+public class Queen extends AbstractPiece {
 
   public Queen(PlayerColour colour) {
-    this.type = PieceType.QUEEN;
-    this.colour = colour;
-  }
-
-  @Override
-  public Piece.PieceType getType() {
-    return type;
-  }
-
-  @Override
-  public PlayerColour getColour() {
-    return colour;
-  }
-
-  @Override
-  public String toString() {
-    return colour.toString() + " " + type.toString();
+    super(PieceType.QUEEN, colour);
   }
 
   @Override
   public List<Move> getAllowedMoves(Coordinates from, Board board) {
-    // TODO Implement this!
-    return List.of();
+    var allowedMoves = new ArrayList<Move>();
+
+    String[] directions = {"U", "UR", "R", "DR", "D", "DL", "L", "UL"};
+    int maxDistance = 8;
+
+    allowedMoves = board.getMoves(directions, maxDistance, this.getColour(), from);
+
+    return allowedMoves;
   }
 }
